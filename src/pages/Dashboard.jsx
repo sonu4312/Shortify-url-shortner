@@ -67,9 +67,8 @@ function Dashboard() {
       </div>
       <div className="flex justify-between">
         <h1 className="text-4xl font-extrabold">My Links</h1>
-        <Button>
-          <CreateLink />
-        </Button>
+
+        <CreateLink />
       </div>
       <div className="relative">
         <Input
