@@ -4,7 +4,6 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle,
@@ -91,7 +90,7 @@ const CreateLink = () => {
       }}
     >
       <DialogTrigger asChild>
-        <Button variant="destructive">Create new Link </Button>
+        <Button variant="destructive">Create new Link</Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>

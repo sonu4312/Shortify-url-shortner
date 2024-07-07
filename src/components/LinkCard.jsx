@@ -24,16 +24,6 @@ const LinkCard = ({ url, fetchUrls }) => {
     anchorTag.click();
     document.body.removeChild(anchorTag);
     window.URL.revokeObjectURL(urlBlob);
-    // const imageUrl = url?.qr;
-    // const fileName = url?.title;
-
-    // const anchorTag = document.createElement("a");
-    // anchorTag.href = imageUrl;
-    // anchorTag.download = fileName;
-
-    // document.body.appendChild(anchorTag);
-    // anchorTag.click();
-    // document.body.removeChild(anchorTag);
   };
 
   const handleCopy = () => {
@@ -67,6 +57,7 @@ const LinkCard = ({ url, fetchUrls }) => {
           {new Date(url?.created_at).toLocaleString()}
         </span>
       </Link>
+
       <div className="flex gap-2">
         <div className="relative">
           <Button variant="ghost" onClick={handleCopy}>
