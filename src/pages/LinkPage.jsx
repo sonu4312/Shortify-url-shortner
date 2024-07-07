@@ -88,7 +88,7 @@ function LinkPage() {
           <a
             href={`${shortify_url}/${link}`}
             target="_blank"
-            className="text-2xl sm:text-4xl text-blue-400 font-bold hover:underline cursor-pointer"
+            className="text-2xl sm:text-3xl text-blue-400 font-bold hover:underline cursor-pointer"
           >
             {shortify_url}/{link}
           </a>
