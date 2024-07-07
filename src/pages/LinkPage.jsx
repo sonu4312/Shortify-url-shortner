@@ -81,14 +81,14 @@ function LinkPage() {
       )}
 
       <div className="flex flex-col gap-8 sm:flex-row justify-between">
-        <div className="flex flex-col items-start gap-8 rounded-lg sm:w-2/5">
-          <span className="text-6xl font-extrabold hover:underline cursor-pointer">
+        <div className="flex flex-col items-start gap-8 rounded-lg w-full sm:w-2/5">
+          <span className="text-4xl sm:text-6xl font-extrabold hover:underline cursor-pointer">
             {url?.title}
           </span>
           <a
             href={`${shortify_url}/${link}`}
             target="_blank"
-            className="text-2xl sm:text-3xl text-blue-400 font-bold hover:underline cursor-pointer"
+            className="text-xl sm:text-2xl text-blue-400 font-bold hover:underline cursor-pointer break-all"
           >
             {shortify_url}/{link}
           </a>
@@ -96,12 +96,12 @@ function LinkPage() {
           <a
             href={url?.original_url}
             target="_blank"
-            className="flex items-center gap-1 hover:underline cursor-pointer"
+            className="flex items-center gap-1 hover:underline cursor-pointer break-all"
           >
             <LinkIcon className="p-1" />
             {url?.original_url}
           </a>
-          <span className="flex itmes-end font-extralight text-sm">
+          <span className="flex items-end font-extralight text-xs sm:text-sm">
             {new Date(url?.created_at).toLocaleString()}
           </span>
 
@@ -138,11 +138,12 @@ function LinkPage() {
             className="w-4/5 sm:w-full self-center sm:self-start ring ring-blue-500 p-1 object-contain"
           />
         </div>
-        {/* div for left side */}
 
-        <Card className="sm:w-3/5">
+        <Card className="w-full sm:w-3/5">
           <CardHeader>
-            <CardTitle className="text-4xl font-extrabold">Stats</CardTitle>
+            <CardTitle className="text-2xl sm:text-4xl font-extrabold">
+              Stats
+            </CardTitle>
           </CardHeader>
           {stats && stats?.length ? (
             <CardContent className="flex flex-col gap-6">

@@ -45,9 +45,9 @@ function Dashboard() {
   );
 
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-8 px-4 sm:px-8">
       {(loading || loadingClicks) && <BarLoader width={"100%"} color="blue" />}
-      <div className="grid grid-cols-2 gap-4 ">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <Card>
           <CardHeader>
             <CardTitle>Links Created</CardTitle>
@@ -65,9 +65,8 @@ function Dashboard() {
           </CardContent>
         </Card>
       </div>
-      <div className="flex justify-between">
-        <h1 className="text-4xl font-extrabold">My Links</h1>
-
+      <div className="flex justify-between items-center">
+        <h1 className="text-2xl sm:text-4xl font-extrabold">My Links</h1>
         <CreateLink />
       </div>
       <div className="relative">
@@ -82,9 +81,11 @@ function Dashboard() {
         <Filter className="absolute top-2 right-2 p-1" />
       </div>
       {error && <Error message={error?.message} />}
-      {(filteredUrls || []).map((url, i) => {
-        return <LinkCard key={i} url={url} fetchUrls={fnUrls} />;
-      })}
+      <div className="flex flex-col gap-4">
+        {(filteredUrls || []).map((url, i) => {
+          return <LinkCard key={i} url={url} fetchUrls={fnUrls} />;
+        })}
+      </div>
     </div>
   );
 }

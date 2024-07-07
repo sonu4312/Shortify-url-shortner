@@ -31,6 +31,12 @@ const Login = () => {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
 
+    // Clear the error for the current input field
+    setErrors((prevErrors) => ({
+      ...prevErrors,
+      [name]: null,
+    }));
+
     setFormData((prevState) => ({
       ...prevState,
       [name]: value,
@@ -55,7 +61,7 @@ const Login = () => {
           .email("Invalid Email")
           .required("Email is required"),
         password: Yup.string()
-          .min(6, "Password must be atleast 6 characters")
+          .min(6, "Password must be at least 6 characters")
           .required("Password is required"),
       });
 
@@ -89,6 +95,7 @@ const Login = () => {
             type="email"
             placeholder="Enter Email"
             onChange={handleInputChange}
+            className={errors.email ? "border-red-500" : ""}
           />
           {errors.email && <Error message={errors.email} />}
         </div>
@@ -99,6 +106,7 @@ const Login = () => {
             type="password"
             placeholder="Enter Password"
             onChange={handleInputChange}
+            className={errors.password ? "border-red-500" : ""}
           />
           {errors.password && <Error message={errors.password} />}
         </div>

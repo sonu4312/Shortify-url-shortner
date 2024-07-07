@@ -33,6 +33,12 @@ const Signup = () => {
   const handleInputChange = (e) => {
     const { name, value, files } = e.target;
 
+    // Clear the error for the current input field
+    setErrors((prevErrors) => ({
+      ...prevErrors,
+      [name]: null,
+    }));
+
     setFormData((prevState) => ({
       ...prevState,
       [name]: files ? files[0] : value,
@@ -42,7 +48,6 @@ const Signup = () => {
   const { data, error, loading, fn: fnSignup } = useFetch(signup, formData);
 
   const { fetchUser } = UrlState();
-
   useEffect(() => {
     if (error == null && data) {
       navigate(`/dashboard?${longLink ? `createNew=${longLink}` : ""}`);
@@ -56,12 +61,12 @@ const Signup = () => {
       const schema = Yup.object().shape({
         name: Yup.string()
           .required("Name is required")
-          .max(100, "Invalid input! name is too large"),
+          .max(100, "Name must be less than or equal to 100 characters"),
         email: Yup.string()
           .email("Invalid Email")
           .required("Email is required"),
         password: Yup.string()
-          .min(6, "Password must be atleast 6 characters")
+          .min(6, "Password must be at least 6 characters")
           .required("Password is required"),
         profile_pic: Yup.mixed().required("Profile picture is required"),
       });
@@ -96,6 +101,7 @@ const Signup = () => {
             type="text"
             placeholder="Enter Name"
             onChange={handleInputChange}
+            className={errors.name ? "border-red-500" : ""}
           />
           {errors.name && <Error message={errors.name} />}
         </div>
@@ -105,6 +111,7 @@ const Signup = () => {
             type="email"
             placeholder="Enter Email"
             onChange={handleInputChange}
+            className={errors.email ? "border-red-500" : ""}
           />
           {errors.email && <Error message={errors.email} />}
         </div>
@@ -115,6 +122,7 @@ const Signup = () => {
             type="password"
             placeholder="Enter Password"
             onChange={handleInputChange}
+            className={errors.password ? "border-red-500" : ""}
           />
           {errors.password && <Error message={errors.password} />}
         </div>
@@ -124,6 +132,7 @@ const Signup = () => {
             type="file"
             accept="image/*"
             onChange={handleInputChange}
+            className={errors.profile_pic ? "border-red-500" : ""}
           />
           {errors.profile_pic && <Error message={errors.profile_pic} />}
         </div>

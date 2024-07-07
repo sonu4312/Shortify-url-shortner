@@ -48,6 +48,12 @@ const CreateLink = () => {
       ...formValues,
       [e.target.id]: e.target.value,
     });
+
+    // Clear the error for the current input field
+    setErrors((prevErrors) => ({
+      ...prevErrors,
+      [e.target.id]: null,
+    }));
   };
 
   const {
@@ -64,7 +70,7 @@ const CreateLink = () => {
   }, [error, data]);
 
   const createNewUrlLink = async () => {
-    setErrors([]);
+    setErrors({});
     try {
       await schema.validate(formValues, { abortEarly: false });
       const canvas = ref.current.canvasRef.current;
@@ -138,7 +144,4 @@ const CreateLink = () => {
     </Dialog>
   );
 };
-
 export default CreateLink;
-
-// http://localhost:5173/dashboard?createNew=https://www.youtube.com/

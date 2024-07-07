@@ -24,9 +24,9 @@ export default function Location({ stats }) {
   }));
 
   return (
-    <div style={{ width: "100%", height: 300 }}>
+    <div className="w-full h-64 sm:h-96">
       <ResponsiveContainer>
-        <LineChart width={700} height={300} data={cities.slice(0, 5)}>
+        <LineChart data={cities.slice(0, 5)}>
           <XAxis dataKey="city" />
           <YAxis />
           <Tooltip labelStyle={{ color: "green" }} />
