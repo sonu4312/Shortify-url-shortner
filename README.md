@@ -1,8 +1,24 @@
-# React + Vite
+Here's a concise README for your "shortify" project:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+# Shortify
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Shortify** is a modern URL shortener web application that not only shortens URLs but also generates QR codes and provides real-time analytics for tracking URL performance.
+
+## Features
+
+- **URL Shortening**: Easily shorten long URLs for better management and sharing.
+- **QR Code Generation**: Generate QR codes for shortened URLs for quick access.
+- **Real-Time Analytics**: Track URL performance with detailed insights into user engagement and geographic data.
+- **Responsive Design**: Optimized for seamless functionality across all devices.
+
+## Tech Stack
+
+- **Frontend**: React, shadcn, Tailwind CSS
+- **Backend**: Supabase
+
+## Live Link
+
+[Live Demo](https://shrtify.onrender.com)
+
