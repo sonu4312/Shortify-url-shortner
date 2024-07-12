@@ -1,7 +1,3 @@
-Here's a concise README for your "shortify" project:
-
----
-
 # Shortify
 
 **Shortify** is a modern URL shortener web application that not only shortens URLs but also generates QR codes and provides real-time analytics for tracking URL performance.
